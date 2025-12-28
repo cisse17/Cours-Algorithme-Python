@@ -194,3 +194,67 @@ for letter in text:
     counts[letter] = counts.get(letter, 0) + 1
 
 print(counts)  # {'h': 1, 'e': 1, 'l': 2, 'o': 1}
+
+
+
+# 9. DICTIONNAIRES Imbriqués (Dict dans Dict)
+# Dictionnaire d'utilisateurs
+users = {
+    "user1": {
+        "name": "Alice",
+        "age": 25,
+        "scores": [10, 15, 20]
+    },
+    "user2": {
+        "name": "Bob",
+        "age": 30,
+        "scores": [12, 18, 22]
+    }
+}
+
+# Accès
+print(users["user1"]["name"])        # "Alice"
+print(users["user2"]["scores"][0])   # 12
+
+# Parcourir
+for user_id, info in users.items():
+    print(f"{user_id}: {info['name']}, {info['age']} ans")
+# Output:
+# user1: Alice, 25 ans
+# user2: Bob, 30 ans
+
+
+# 10. EXEMPLES Pratiques
+# Exemple 1 : Grouper par catégorie
+fruits = ["apple", "banana", "apricot", "blueberry", "cherry"]
+
+grouped = {}
+for fruit in fruits:
+    first_letter = fruit[0]
+    if first_letter not in grouped:
+        grouped[first_letter] = []
+    grouped[first_letter].append(fruit)
+
+print(grouped)
+# {'a': ['apple', 'apricot'], 'b': ['banana', 'blueberry'], 'c': ['cherry']}
+
+# Exemple 2 : Inverser un dictionnaire
+original = {"a": 1, "b": 2, "c": 3}
+inverted = {}
+for key, value in original.items():
+    inverted[value] = key
+
+print(inverted)  # {1: 'a', 2: 'b', 3: 'c'}
+
+# Exemple 3 : Fusionner deux dictionnaires
+dict1 = {"a": 1, "b": 2}
+dict2 = {"c": 3, "d": 4}
+
+# Méthode 1 : .update()
+merged = dict1.copy()
+merged.update(dict2)
+print(merged)  # {'a': 1, 'b': 2, 'c': 3, 'd': 4}
+
+# Méthode 2 : Unpacking (Python 3.5+)
+merged = {**dict1, **dict2}
+print(merged)  # {'a': 1, 'b': 2, 'c': 3, 'd': 4}
