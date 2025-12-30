@@ -1,5 +1,5 @@
 
-# Exercice 1.2 : Nombres Pairs ⭐
+# Exercice 1.2 : Nombres Pairs 
 """
     Retourne une liste contenant SEULEMENT les nombres pairs
     
